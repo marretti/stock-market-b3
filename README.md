@@ -115,9 +115,10 @@ CREATE INDEX IF NOT EXISTS tintraday_symbol_idx
 ```
 
 #### 4) Criar as pastas abaixo na raiz do diretório onde a aplicação será executada:
-        /marretti/stockexchange/apl --> Sugestão de armazenamento do .jar (compilado disponível na pasta target: marretti-stockexchange-sync-0.0.1-SNAPSHOT.jar)
-        /marretti/stockexchange/config --> Arquivos de configurações da aplicação
-        /marretti/stockexchange/logs --> Pasta de logs
+        /marretti/stockexchange/apl --> Sugestão de armazenamento do .jar (compilado disponível na pasta target: marretti-stockexchange-sync-0.0.1-SNAPSHOT.jar).
+        /marretti/stockexchange/config --> Arquivos de configurações da aplicação.
+        /marretti/stockexchange/logs --> Pasta de logs.
+        /marretti/stockexchange/storage --> Local onde será realizado o download dos arquivos históricos.
         
 #### 5) Obter o arquivo application.properties da pasta /src/main/resources e copiar para o diretório /marretti/stockexchange/config
 
