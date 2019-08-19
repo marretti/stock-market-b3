@@ -1,4 +1,6 @@
 # stock-market-b3
+[![Build Status](https://travis-ci.org/marretti/stock-market-b3.svg?branch=master)](https://travis-ci.org/marretti/stock-market-b3)
+
 Aplicação Java para sincronização de dados diário e intradiário de ações e derivativos da B3 em uma base de dados PostgreSQL TimescaleDB.
 
 - Sincronização de dados do mercado à vista (BOVESPA) - Diário e Intraday
