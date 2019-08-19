@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+	<Properties>
+		<Property name="path">/marretti/stockexchange/logs</Property>
+	</Properties>
+	<Appenders>
+
+		<Console name="Console-Appender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>
+					%d{ISO8601} [%-5level] [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</Console>
+
+		<RollingFile name="Application-Rolling" fileName="${path}/Application.log"
+			filePattern="${path}/Application-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout>
+				<pattern>
+					%d{ISO8601} [%-5level] [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+
+		<RollingFile name="Business-Rolling" fileName="${path}/Business.log"
+			filePattern="${path}/Business-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout>
+				<pattern>
+					%d{ISO8601} [%-5level] [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+
+		<RollingFile name="Data-Rolling" fileName="${path}/Data.log"
+			filePattern="${path}/Data-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout>
+				<pattern>
+					%d{ISO8601} [%-5level] [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+
+		<RollingFile name="Infra-Rolling" fileName="${path}/Infra.log"
+			filePattern="${path}/Infra-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout>
+				<pattern>
+					%d{ISO8601} [%-5level] [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+
+	</Appenders>
+	<Loggers>
+
+		<Logger name="org.springframework.web" level="info" additivity="false">
+			<AppenderRef ref="Infra-Rolling" />
+		</Logger>
+
+		<Logger name="com.marretti.stock" level="info"
+			additivity="false">
+			<AppenderRef ref="Application-Rolling" />
+		</Logger>
+
+		<Logger name="com.marretti.stock.business" level="info"
+			additivity="false">
+			<AppenderRef ref="Business-Rolling" />
+		</Logger>
+
+		<Logger name="com.marretti.stock.data.dao" level="info"
+			additivity="false">
+			<AppenderRef ref="Data-Rolling" />
+		</Logger>
+
+		<Root level="error">
+			<AppenderRef ref="Infra-Rolling" />
+		</Root>
+
+	</Loggers>
+</Configuration>
