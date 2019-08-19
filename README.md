@@ -1,6 +1,6 @@
 # stock-market-b3
 [![Build Status](https://travis-ci.org/marretti/stock-market-b3.svg?branch=master)](https://travis-ci.org/marretti/stock-market-b3)
-[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/marretti/stock-market-b3/master/LICENSE.md)
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/marretti/stock-market-b3/blob/master/LICENSE)
 
 Aplicação Java para sincronização de dados diário e intradiário de ações e derivativos da B3 em uma base de dados PostgreSQL TimescaleDB.
 
