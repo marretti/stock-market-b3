@@ -1,11 +1,7 @@
 package com.marretti.stock.util;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Calendar;
@@ -46,37 +42,6 @@ public class TimeStampUtils {
 		boolean isBefore = data.before(startDate.getTime());
 		boolean isAfter = data.after(endDate.getTime());
 		return !isBefore && !isAfter;
-	}
-	
-	public static Date formateDate(String pDate, String pattern, boolean endDay) throws ParseException {
-		Date retorno = null;
-		DateFormat formatDate = new SimpleDateFormat(pattern);
-		retorno = formatDate.parse(pDate);
-		if (endDay) {
-			Calendar cal = TimeStampUtils.getToday();
-			cal.setTime(retorno);
-			cal.set(Calendar.HOUR_OF_DAY, 23);
-			cal.set(Calendar.MINUTE, 59);
-			cal.set(Calendar.SECOND, 59);
-			cal.set(Calendar.MILLISECOND, 999);
-			retorno = cal.getTime();
-		}
-		return retorno;
-	}
-	
-	public static long minutesFrom(Date startDate, Date endDate) {
-		long difference = startDate.getTime() - endDate.getTime();
-		return TimeUnit.MILLISECONDS.toMinutes(difference);
-	}
-	
-	public static long secondsFrom(Date startDate, Date endDate) {
-		long difference = startDate.getTime() - endDate.getTime();
-		return TimeUnit.MILLISECONDS.toSeconds(difference);
-	}
-	
-	public static long minutesFrom(LocalDateTime startDate, Date endDate) {
-		long difference = Date.from(startDate.atZone(ZoneId.systemDefault()).toInstant()).getTime() - endDate.getTime();
-		return TimeUnit.MILLISECONDS.toMinutes(difference);
 	}
 	
 	public static Date convertLocalDateAndTime(LocalDate date, LocalTime time) {

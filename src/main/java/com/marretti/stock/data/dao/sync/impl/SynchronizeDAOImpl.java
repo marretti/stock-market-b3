@@ -144,7 +144,6 @@ public class SynchronizeDAOImpl implements ISynchronizeDAO {
 			StockBase stock = new StockBase();
 			RegistroCotacaoDiaria registroCotacaoDiaria = iterator.next();
 			String codNeg = registroCotacaoDiaria.getCODNEG();
-			// Only assets and ETFs
 			if (codNeg.matches(StockExchangeUtils.getPropertiesValue("regex.bovespa.daily"))) {
 				stock.setSymbol(registroCotacaoDiaria.getCODNEG());
 				stock.setOpen(new BigDecimal(registroCotacaoDiaria.getPREABE()));
